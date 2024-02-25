@@ -28,11 +28,11 @@ export const metricsCalculator = async (
 
 export const metricsCalculatorByPercentile = async (
   paths: string[],
-  percentile: number
-) => {
+  percentile: number = 0.9
+): Promise<Metrics[]> => {
   const result = await metricsCalculator(paths);
   const index = result.length - 1 - getPercentileIndex(result, percentile);
   const percentileValue = result[index].dependentsLength ?? 0;
 
-  return result.filter((r) => r.dependentsLength > percentileValue * 2);
+  return result.filter((r) => r.dependentsLength > percentileValue);
 };

@@ -17,6 +17,6 @@ export const keysExclude = <K extends PropertyKey>(keysToExclude: K[]) => {
 };
 
 export const getPercentileIndex = (arr: any[], percentile: number) => {
-  const index = Math.floor(arr.length * percentile);
+  const index = Math.floor((arr.length - 1) * percentile);
   return index;
 };
