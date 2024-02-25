@@ -10,11 +10,13 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "GPL-2.0-only",
   "description": "",
   "dependencies": {
-    "dependency-cruiser": "^16.2.1",
+    "@types/minimist": "^1.2.5",
     "@types/node": "^20.11.17",
+    "dependency-cruiser": "^16.2.1",
+    "minimist": "^1.2.8",
     "ts-node": "^10.9.2"
   },
   "devDependencies": {
