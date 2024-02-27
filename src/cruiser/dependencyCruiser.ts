@@ -14,18 +14,14 @@ export async function dependencyCruiser(paths: string[]): Promise<any> {
     " "
   )}`;
 
-  try {
-    const { stdout, stderr } = await execAsync(command);
+  const { stdout, stderr } = await execAsync(command);
 
-    if (stderr) {
-      console.error(`stderr: ${stderr}`);
-      throw new Error(`Command error: ${stderr}`);
-    }
-
-    return JSON.parse(stdout);
-  } catch (error) {
-    throw new Error(`exec error: ${error}`);
+  if (stderr) {
+    console.error(`stderr: ${stderr}`);
+    throw new Error(`Command error: ${stderr}`);
   }
+
+  return JSON.parse(stdout);
 }
 
 export const toMapModule = (module: any): MapModule => {
